@@ -34,5 +34,12 @@ mongoose
 
 
 app.use("/api/user",userRoute)
+
+app.use(express.static(path.join(__dirname, "dist")));
+
+// Serve the index.html file for all routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
 const port = process.env.PORT || 5000;
 app.listen(port, console.log("server running"));
