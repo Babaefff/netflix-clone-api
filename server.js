@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({
-  origin: process.env.FRONT_URL
+  origin: process.env.FRONT_URL || "http://localhost:5173"
 }));
 app.use(express.json());
 
